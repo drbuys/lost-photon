@@ -1,0 +1,18 @@
+<h1>New user created! </h1>
+
+<div class="newobject">
+<p>
+    Hi <b><%= @user.fullname %></b>, your username is: <b> <%= @user.username %> </b>!
+
+    <% if @user.isphotographer = TRUE %><br>
+<p>
+    As a photographer you can <a href="/">view</a>, <a href="/">add new</a>, and comment on photographs.
+</p>
+    <% else %>
+<p>
+    You have created a user account. You can now <a href="/">view</a> and comment on photographs.
+</p>
+    <% end %>
+
+</p>
+</div>

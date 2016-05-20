@@ -8,12 +8,12 @@ class User
       @id = params['id'].to_i
       @username = params['username']
       @fullname = params['fullname']
-    #   @isphotographer = params['isphotographer']
-      @isphotographer = isphotographer?(params['isphotographer'])
+      @isphotographer = params['isphotographer']
+    #   @isphotographer = isphotographer?(params['isphotographer'])
   end
 
   def save()
-      sql = "INSERT INTO users (username, last_name, isphotographer) VALUES ('#{@username}', '#{@last_name}', #{@isphotographer});"
+      sql = "INSERT INTO users (username, fullname, isphotographer) VALUES ('#{@username}', '#{@fullname}', #{@isphotographer});"
       return SqlRunner.run(sql)
   end
 
@@ -37,15 +37,9 @@ class User
       return User.map_items(sql)
   end
 
-  def isphotographer?(val)
-      @isphotographer = val == TRUE ? true : false
-
-    #   if @isphotographer == "TRUE"
-    #       stuff
-    #   else
-    #       other
-    #   end
-  end
+  # def isphotographer?(val)
+  #     @isphotographer = val == TRUE ? true : false
+  # end
 
 
   def self.update(params)
