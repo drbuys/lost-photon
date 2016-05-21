@@ -20,6 +20,7 @@ post '/users' do
   # binding.pry
   @user = User.new(params)
   @user.save()
+  @photographers = User.photographers()
   erb(:'user/create')
 end
 

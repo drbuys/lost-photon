@@ -24,7 +24,7 @@ class User
 
   def self.delete_all()
       sql = "DELETE FROM users;"
-      SqlRunner.run_sql(sql)
+      SqlRunner.run(sql)
   end
 
   def self.find(id)
@@ -53,7 +53,7 @@ class User
 
     def self.destroy(id)
       sql = "DELETE FROM users WHERE id = #{id}"
-      return SqlRunner.run_sql(sql)
+      return SqlRunner.run(sql)
     end
 
   def self.map_items(sql)
