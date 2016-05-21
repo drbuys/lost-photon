@@ -6,7 +6,7 @@
 <p>
   <% @photos.each do |photo| %>
 <div class="photo">
-    <p><a href="/photos/<%= photo.id%>"><%= photo.object%></a></p>
+    <p><a href="/photos/<%= photo.id%>"><%= photo.name%></a></p>
 </div>
     <% end %>
 </p>

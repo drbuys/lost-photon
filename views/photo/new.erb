@@ -1,0 +1,53 @@
+<h1>Add a new Photograph</h1>
+
+<form action="/photos" method="post">
+
+    <label for="name">Photograph Name:</label>
+    <input type="text" name="name">
+
+    <label for="object">Link to Photograph:</label>
+    <input type="text" name="object">
+
+    <label for="datetaken">Date Taken:</label>
+    <input type="date" name="datetaken">
+
+    <label for="aperture">Aperture Used (f):</label>
+    <input type="number" name="aperture" step="0.1">
+
+    <label for="shutterspeed">Shutter Speed Used (1/xxx):</label>
+    <input type="number" name="shutterspeed" step="0.1">
+
+    <label for="photographer_id">Select your Username:</label>
+    <select name="photographer_id">
+
+        <% @photographers.each do |photographer| %>
+        <option value='<%= photographer.id %>'><%= photographer.username %></option>
+        <% end %>
+
+    </select>
+
+    <label for="camera_id">Select the Camera used:</label>
+    <select name="camera_id">
+
+        <% @cameras.each do |camera| %>
+        <option value='<%= camera.id %>'><%= camera.make %> : <%= camera.model %></option>
+        <% end %>
+
+    </select>
+
+    <label for="lens_id">Select the Lens used:</label>
+    <select name="lens_id">
+
+        <% @lenses.each do |lens| %>
+        <option value='<%= lens.id %>'><%= lens.make %> : <%= lens.model %></option>
+        <% end %>
+
+    </select>
+
+  <input type="submit" value="Add your photograph">
+
+</form>
+
+<br>
+<br>
+<a href="/photos">Back</a>

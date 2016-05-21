@@ -1,11 +1,14 @@
 # get '/photos' do
 #   return 'Hello World'
 # end
-#
-# get '/photos/new' do
-#   #NEW
-#   erb(:'photo/new')
-# end
+
+get '/photos/new' do
+  #NEW
+  @photographers = User.photographers()
+  @cameras = Camera.all()
+  @lenses = Lens.all()
+  erb(:'photo/new')
+end
 
 get '/photos' do
   #INDEX
