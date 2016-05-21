@@ -1,0 +1,16 @@
+<h1>New Photograph</h1>
+
+<div class="new">
+<p>
+    Thank you <b><%= @photo.photographer.username %></b>, your photograph <b><%= @photo.name %></b> was successfully uploaded.
+</p>
+<p>
+    --- Exif ---<br>
+    Date: <%= @photo.datetaken %><br>
+    Location: <%= @photo.location %><br>
+    Aperture: <%= @photo.aperture %><br>
+    Shutter Speed: <%= @photo.shutterspeed %><br>
+    Camera: <%= @photo.camera.make %> : <%= @photo.camera.model %><br>
+    Lens: <%= @photo.lens.make %> : <%= @photo.lens.model %><br>
+</p>
+</div>

@@ -10,11 +10,11 @@ class Photo
       @object = params['object']
       @datetaken = params['datetaken']
       @location = params['location']
-      @aperture = params['aperture']
+      @aperture = params['aperture'].to_f
       @shutterspeed = params['shutterspeed']
-      @photographer_id = params['photographer_id']
-      @camera_id = params['camera_id']
-      @lens_id = params['lens_id']
+      @photographer_id = params['photographer_id'].to_i
+      @camera_id = params['camera_id'].to_i
+      @lens_id = params['lens_id'].to_i
   end
 
   def save()
@@ -30,10 +30,10 @@ class Photo
       lens_id) VALUES (
       '#{@name}',
       '#{@object}',
-      #{@datetaken},
+      '#{@datetaken}',
       '#{@location}',
       #{@aperture},
-      #{@shutterspeed},
+      '#{@shutterspeed}',
       #{@photographer_id},
       #{@camera_id},
       #{@lens_id});"
@@ -59,7 +59,13 @@ class Photo
     sql = "UPDATE photos SET
             name = '#{params['name']}',
             object = '#{params['object']}',
-            datetaken = #{params['datetaken']}
+            datetaken = '#{params['datetaken']}',
+            location = '#{params['location']}',
+            aperture = #{params['aperture']},
+            shutterspeed = '#{params['shutterspeed']}',
+            photographer_id = #{params['photographer_id']},
+            camera_id = #{params['camera_id']},
+            lens_id = #{params['lens_id']}
             WHERE id = #{params['id']}"
             return Photo.map_item(sql)
     end

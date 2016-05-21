@@ -35,8 +35,8 @@ CREATE TABLE photos (
   object VARCHAR(255),
   datetaken DATE,
   location VARCHAR(255),
-  aperture INT8,
-  shutterspeed INT8,
+  aperture NUMERIC,
+  shutterspeed VARCHAR(255),
   photographer_id INT8 references users(id) ON DELETE CASCADE,
   camera_id INT8 references cameras(id) ON DELETE CASCADE,
   lens_id INT8 references lenses(id) ON DELETE CASCADE
