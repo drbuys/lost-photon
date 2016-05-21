@@ -1,0 +1,12 @@
+<h1>Photographs</h1>
+
+<p>
+    --- All Photographs ---
+</p>
+<p>
+  <% @photos.each do |photo| %>
+<div class="photo">
+    <p><a href="/photos/<%= photo.id%>"><%= photo.object%></a></p>
+</div>
+    <% end %>
+</p>
