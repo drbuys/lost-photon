@@ -1,0 +1,16 @@
+<h1>List of Cameras</h1>
+
+<p>
+    --- All Cameras ---
+</p>
+<p>
+  <% @cameras.each do |camera| %>
+<div class="index">
+    <p><a href="/cameras/<%= camera.id%>"><%= camera.make%> : <%= camera.model%></a></p>
+</div>
+    <% end %>
+</p>
+
+<p>
+    <a href="/cameras/new">>Add a new camera<</a>
+</p>

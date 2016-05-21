@@ -1,0 +1,24 @@
+<h1>Edit Lens</h1>
+<div class="edit">
+    <form action="/lenses/<%= @lens.id %>" method="post">
+        <input type="hidden" name="_method" value="put"><br>
+
+        <label for="make">Lens Make:</label>
+        <input type="text" name="make" value="<%= @lens.make %>">
+
+        <label for="model">Lens Model:</label>
+        <input type="text" name="model" value="<%= @lens.model %>">
+
+      <input type="submit" value="Update lens info">
+
+    </form>
+</div>
+
+<form action="/lenses/<%= @lens.id %>" method="post">
+  <input type="hidden" name="_method" value="delete">
+  <input type="submit" value="Delete this lens">
+</form>
+
+<br>
+<br>
+<a href="/lenses">Back</a>

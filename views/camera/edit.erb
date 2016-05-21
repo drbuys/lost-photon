@@ -1,0 +1,24 @@
+<h1>Edit Camera</h1>
+<div class="edit">
+    <form action="/cameras/<%= @camera.id %>" method="post">
+        <input type="hidden" name="_method" value="put"><br>
+
+        <label for="make">Camera Make:</label>
+        <input type="text" name="make" value="<%= @camera.make %>">
+
+        <label for="model">Camera Model:</label>
+        <input type="text" name="model" value="<%= @camera.model %>">
+
+      <input type="submit" value="Update camera info">
+
+    </form>
+</div>
+
+<form action="/cameras/<%= @camera.id %>" method="post">
+  <input type="hidden" name="_method" value="delete">
+  <input type="submit" value="Delete this camera">
+</form>
+
+<br>
+<br>
+<a href="/cameras">Back</a>

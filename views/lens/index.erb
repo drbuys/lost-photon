@@ -1,0 +1,16 @@
+<h1>List of Lenses</h1>
+
+<p>
+    --- All Lenses ---
+</p>
+<p>
+  <% @lenses.each do |lens| %>
+<div class="index">
+    <p><a href="/lenses/<%= lens.id%>"><%= lens.make%> : <%= lens.model%></a></p>
+</div>
+    <% end %>
+</p>
+
+<p>
+    <a href="/lenses/new">>Add a new lens<</a>
+</p>

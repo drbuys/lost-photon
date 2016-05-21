@@ -12,8 +12,8 @@
         <label for="isphotographer">Are you also a photographer?</label>
         <select name="isphotographer">
 
-            <option value=TRUE <%= 'selected' if @user.isphotographer == "TRUE" %>>Yes</option>
-            <option value=FALSE <%= 'selected' if @user.isphotographer == "FALSE" %>>No</option>
+            <option value=TRUE <%= 'selected' if @user.isphotographer == "t" %>>Yes</option>
+            <option value=FALSE <%= 'selected' if @user.isphotographer == "f" %>>No</option>
 
         </select>
 
