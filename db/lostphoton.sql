@@ -47,5 +47,5 @@ CREATE TABLE comments (
   user_id INT8 references users(id) ON DELETE CASCADE,
   photo_id INT8 references photos(id) ON DELETE CASCADE,
   rating INT8,
-  post TEXT
+  post VARCHAR(255)
 );

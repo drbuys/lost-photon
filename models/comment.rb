@@ -13,15 +13,7 @@ class Comment
   end
 
   def save()
-      sql = "INSERT INTO comments (
-      user_id,
-      photo_id,
-      rating,
-      post) VALUES (
-      #{@user_id},
-      #{@photo_id},
-      #{@rating},
-      '#{@post}');"
+      sql = "INSERT INTO comments (user_id, photo_id, rating, post) VALUES (#{@user_id}, #{@photo_id}, #{@rating}, $$#{@post}$$);"
       return SqlRunner.run(sql)
   end
 
@@ -45,8 +37,8 @@ class Comment
             user_id = #{params['user_id']},
             photo_id = #{params['photo_id']},
             rating = #{params['rating']},
-            post = '#{params['post']}'
-            WHERE id = #{params['id']}"
+            post = $$#{params['post']}$$
+            WHERE id = #{params['id']};"
             return Comment.map_item(sql)
     end
 
@@ -54,6 +46,24 @@ class Comment
       sql = "DELETE FROM comments WHERE id = #{id}"
       return SqlRunner.run(sql)
     end
+
+# this function should pull out the user commenting on the photo
+  def user
+      sql = "SELECT * FROM users WHERE id = #{@user_id};"
+      return User.map_item(sql)
+  end
+
+# this function should pull out the photo being commented on
+  def photo
+      sql = "SELECT * FROM photos WHERE id = #{@photo_id};"
+      return Photo.map_item(sql)
+  end
+
+  # # this function should pull out the photographer of the photo
+  #   def photographer
+  #       sql = "SELECT username FROM photographers INNER JOIN photos ON photos.user_id = photographers.id WHERE photo.id = #{@photo_id};"
+  #       return User.map_item(sql)
+  #   end
 
   def self.map_items(sql)
     comments = SqlRunner.run( sql )

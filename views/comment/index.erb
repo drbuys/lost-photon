@@ -1,0 +1,18 @@
+<h1>Comments</h1>
+
+<p>
+    --- All Comments ---
+</p>
+<p>
+  <% @comments.each do |comment| %>
+<div class="comment">
+    <p>
+        <a href="/photos/<%= comment.photo_id%>"><b><%= comment.photo.name %></b></a>
+    </p>
+    <p>
+        <a href="/comments/<%= comment.id%>"><%= comment.post%></a> by <b> <%= comment.user.username %> </b>
+    </p>
+    <hr>
+</div>
+    <% end %>
+</p>

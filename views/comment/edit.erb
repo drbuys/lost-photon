@@ -1,0 +1,40 @@
+<h1>Edit your Comment</h1>
+
+<p>
+    Edit your comment on <b><%= @comment.photo.name %></b> below <b><%= @comment.user.username %></b>
+</p>
+
+<form action="/comments/<%= @comment.id %>" method="post">
+    <input type="hidden" name="_method" value="put"><br>
+
+    <input type="hidden" name="user_id" value="<%= @comment.user_id %>">
+
+    <input type="hidden" name="photo_id" value="<%= @comment.photo_id %>">
+
+    <label for="rating">Rate this photo:</label>
+    <select name="rating">
+
+        <option value='0' <%= 'selected' if @comment.rating == 0 %>>0</option>
+        <option value='1' <%= 'selected' if @comment.rating == 1 %>>1</option>
+        <option value='2' <%= 'selected' if @comment.rating == 2 %>>2</option>
+        <option value='3' <%= 'selected' if @comment.rating == 3 %>>3</option>
+        <option value='4' <%= 'selected' if @comment.rating == 4 %>>4</option>
+        <option value='5' <%= 'selected' if @comment.rating == 5 %>>5</option>
+
+    </select>
+
+    <label for="post">Write your comment here:</label>
+    <input type="text" name="post" value="<%= @comment.post %>">
+
+  <input type="submit" value="Edit your comment">
+
+</form>
+
+<form action="/comments/<%= @comment.id %>" method="post">
+  <input type="hidden" name="_method" value="delete">
+  <input type="submit" value="Delete comment">
+</form>
+
+<br>
+<br>
+<a href="/comments">Back</a>

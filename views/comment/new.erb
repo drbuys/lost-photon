@@ -1,0 +1,44 @@
+<h1>Add a new Comment</h1>
+
+<form action="/comments" method="post">
+
+    <label for="user_id">Select your Username:</label>
+    <select name="user_id">
+
+        <% @users.each do |user| %>
+        <option value='<%= user.id %>'><%= user.username %></option>
+        <% end %>
+
+    </select>
+
+    <label for="photo_id">Select the Photo you want to comment on:</label>
+    <select name="photo_id">
+
+        <% @photos.each do |photo| %>
+        <option value='<%= photo.id %>'><%= photo.name %></option>
+        <% end %>
+
+    </select>
+
+    <label for="rating">Rate this photo:</label>
+    <select name="rating">
+
+        <option value="0">0</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+
+    </select>
+
+    <label for="post">Write your comment here:</label>
+    <input type="text" name="post">
+
+  <input type="submit" value="Add your comment">
+
+</form>
+
+<br>
+<br>
+<a href="/comments">Back</a>
