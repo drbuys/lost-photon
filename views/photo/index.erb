@@ -4,9 +4,28 @@
     --- All Photographs ---
 </p>
 <p>
-  <% @photos.each do |photo| %>
-<div class="photo">
-    <p><a href="/photos/<%= photo.id%>"><%= photo.name%></a></p>
-</div>
+    <% @photos.each do |photo| %>
+    <div class="photo">
+        <p>
+            <b><%= photo.name %></b><br>
+            <a href="/photos/<%= photo.id%>"><img src="img/<%= photo.object %>" /></a>
+        </p>
+
+            <% @comments.each do |comment| %>
+                <% if comment.photo_id == photo.id %>
+                <p>
+                    Comments:<br>
+                </p>
+                <p>
+                    <a href="/comments/<%= comment.id%>"><%= comment.post%></a> by <b> <%= comment.user.username %> </b>
+                </p>
+                <% end %>
+            <% end %>
+
+        <p>
+            <a href="/comments/new"><b>Add a comment</b></a>
+        </p>
+        <hr>
+    </div>
     <% end %>
 </p>

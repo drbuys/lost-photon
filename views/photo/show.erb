@@ -1,7 +1,7 @@
-<h1><%= @photo.name %> by<%= @photo.photographer.username %></h1>
+<h1><%= @photo.name %> by <%= @photo.photographer.username %></h1>
 
 <p>
-    <b><%= @photo.object %></b>
+    <img src="../img/<%= @photo.object %>" />
 </p>
 
     <!-- <#% if @user.isphotographer == 't' %>

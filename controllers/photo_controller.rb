@@ -13,6 +13,7 @@ end
 get '/photos' do
   #INDEX
   @photos = Photo.all()
+  @comments = Comment.all()
   # binding.pry
   erb(:'photo/index')
 end
