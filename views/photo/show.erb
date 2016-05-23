@@ -1,7 +1,19 @@
-<h1><%= @photo.name %> by <%= @photo.photographer.username %></h1>
+<h2><%= @photo.name %> by <%= @photo.photographer.username %></h2>
 
-<p>
+<div class="photoscomments">
+
+
+    <!-- <div class="photo"> -->
     <img src="../img/<%= @photo.object %>" />
+    <!-- </div> -->
+<p>
+    --- Exif ---<br>
+    Date: <%= @photo.datetaken %><br>
+    Location: <%= @photo.location %><br>
+    Aperture: <%= @photo.aperture %><br>
+    Shutter Speed: <%= @photo.shutterspeed %><br>
+    Camera: <%= @photo.camera.make %> : <%= @photo.camera.model %><br>
+    Lens: <%= @photo.lens.make %> : <%= @photo.lens.model %><br>
 </p>
 
     <!-- <#% if @user.isphotographer == 't' %>
@@ -16,3 +28,22 @@
 
 <!-- Maybe add loop through photographers, and if they match the user id (aka user is also a photographer) then display the eidt button below! -->
 <a href="/photos/<%= @photo.id %>/edit">Edit this photograph</a>
+
+<p>
+    Comments:<br>
+</p>
+<% @comments.each do |comment| %>
+    <% if comment.photo_id == @photo.id %>
+    <p>
+        <%= comment.user.username %>: <b><a href="/comments/<%= comment.id%>"><%= comment.post%></a></b><br>
+         Rating: <%= comment.rating%> stars<br>
+    </p>
+    <% end %>
+<% end %>
+
+
+<p>
+<a href="/comments/new"><b>Add a comment</b></a>
+</p>
+
+</div>

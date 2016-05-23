@@ -7,7 +7,14 @@ class Photo
   def initialize(params)
       @id = params['id'].to_i
       @name = params['name']
-      @object = params['object']
+      if params['object'].is_a? String
+          @object = params['object']
+      else
+          @object = params['object'][:filename]
+          File.open('public/img/'+ params['object'][:filename], "w") do |f|
+              f.write(params['object'][:tempfile].read)
+          end
+      end
       @datetaken = params['datetaken']
       @location = params['location']
       @aperture = params['aperture'].to_f
@@ -15,6 +22,7 @@ class Photo
       @photographer_id = params['photographer_id'].to_i
       @camera_id = params['camera_id'].to_i
       @lens_id = params['lens_id'].to_i
+
   end
 
   def save()
@@ -91,6 +99,11 @@ class Photo
   def lens
       sql = "SELECT * FROM lenses WHERE id = #{@lens_id};"
       return Lens.map_item(sql)
+  end
+
+# this function should pull out all of the comments for a given photograph
+  def comments
+      sql = "SELECT * FROM comments WHERE comments.photo_id = #{id};"
   end
 
   def self.map_items(sql)

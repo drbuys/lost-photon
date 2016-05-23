@@ -1,25 +1,34 @@
-<h1>Edit this Photograph</h1>
+<h2>Edit this Photograph</h2>
 
-<form action="/photos/<%= @photo.id %>" method="post">
+<div class="editphoto">
+<div class="photo">
+
+        <img src="../../img/<%= @photo.object %>" /><br>
+
+</div>
+</div>
+<div class="edit">
+
+<form action="/photos/<%= @photo.id %>" method="post" enctype="multipart/form-data">
     <input type="hidden" name="_method" value="put"><br>
 
     <label for="name">Photograph Name:</label>
-    <input type="text" name="name" value="<%= @photo.name %>">
+    <input type="text" name="name" value="<%= @photo.name %>"><br>
 
     <label for="object">Link to Photograph:</label>
-    <input type="text" name="object" value="<%= @photo.object %>">
+    <input type="file" name="object" value="<%= @photo.object %>"><br>
 
     <label for="datetaken">Date Taken:</label>
-    <input type="date" name="datetaken" value="<%= @photo.datetaken %>">
+    <input type="date" name="datetaken" value="<%= @photo.datetaken %>"><br>
 
     <label for="location">Location:</label>
-    <input type="text" name="location" value="<%= @photo.location %>">
+    <input type="text" name="location" value="<%= @photo.location %>"><br>
 
     <label for="aperture">Aperture Used (f):</label>
-    <input type="number" name="aperture" step="0.1" value="<%= @photo.aperture %>">
+    <input type="number" name="aperture" step="0.1" value="<%= @photo.aperture %>"><br>
 
     <label for="shutterspeed">Shutter Speed Used (e.g. 1/125 s):</label>
-    <input type="text" name="shutterspeed" value="<%= @photo.shutterspeed %>">
+    <input type="text" name="shutterspeed" value="<%= @photo.shutterspeed %>"><br><br>
 
 <!-- following 3 selects dynamically create pulldown options and prefills with appropriate info -->
     <label for="photographer_id">Select your Username:</label>
@@ -29,7 +38,7 @@
         <option value='<%= photographer.id %>' <%= 'selected' if photographer.id == @photo.photographer_id %>><%= photographer.username %></option>
         <% end %>
 
-    </select>
+    </select><br>
 
     <label for="camera_id">Select the Camera used:</label>
     <select name="camera_id">
@@ -38,7 +47,7 @@
         <option value='<%= camera.id %>' <%= 'selected' if camera.id == @photo.camera_id %>><%= camera.make %> : <%= camera.model %></option>
         <% end %>
 
-    </select>
+    </select><br>
 
     <label for="lens_id">Select the Lens used:</label>
     <select name="lens_id">
@@ -48,6 +57,7 @@
         <% end %>
 
     </select>
+</div>
 
   <input type="submit" value="Edit your photograph">
 
@@ -57,6 +67,8 @@
   <input type="hidden" name="_method" value="delete">
   <input type="submit" value="Delete photograph">
 </form>
+
+
 
 <br>
 <br>

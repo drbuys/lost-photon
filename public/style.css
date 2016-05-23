@@ -1,0 +1,106 @@
+.navbar ul li {
+    display: inline-block;
+    text-align: left;
+}
+
+h1 {
+    text-align: center;
+}
+
+h2 {
+    text-align: center;
+}
+
+img {
+    max-height:300px;
+}
+
+.navbar {
+    background-color: lightgrey;
+    padding: 1px;
+    width: auto;
+    float: left;
+    margin: 0 0 30px 0;
+    padding: 5px 0 0 0;
+    width: 100%;
+    border-radius: 10px;
+}
+
+.photos {
+    display:inline-block;
+    width: 30%;
+    height: 400px;
+    overflow:scroll;
+    /*margin: 5%;*/
+    vertical-align: top;
+}
+
+/*.photo a {
+}
+
+.photo img {
+    width: 250px;
+    height: 250px;
+}*/
+
+.photo {
+    width: 300px;
+    height: 300px;
+    overflow: hidden;
+    margin: auto;
+    position: relative;
+}
+.photo img {
+    position: absolute;
+    left: -1000%;
+    right: -1000%;
+    top: -1000%;
+    bottom: -1000%;
+    margin: auto;
+    min-height: 100%;
+    min-width: 100%;
+    max-height: 50%;
+}
+
+.photoscomments {
+    text-align: center;
+    margin: 50px;
+}
+
+.photoscomments a {
+    color: black;
+    text-decoration: none;
+    font-weight:bold;
+}
+
+.navbar a {
+    color: black;
+    text-decoration: none;
+    font-weight:bold;
+}
+
+.edit {
+    /*text-align: center;*/
+    width: 70%;
+    margin:auto;
+    display: inline;
+    float: left;
+}
+
+.edit label {
+    float:left;
+    width: 500px;
+    height: 20px;
+}
+
+.edit input {
+    float:left;
+}
+
+.editphoto {
+    display: inline-block;
+}
+
+footer {
+    text-align:center;
+}

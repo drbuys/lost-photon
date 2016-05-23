@@ -1,23 +1,25 @@
-<h1>Photographs</h1>
+<h2>Photographs</h2>
 
-<p>
-    --- All Photographs ---
-</p>
+<div class="photoscomments">
+
 <p>
     <% @photos.each do |photo| %>
-    <div class="photo">
+    <div class="photos">
         <p>
             <b><%= photo.name %></b><br>
+            <div class="photo">
             <a href="/photos/<%= photo.id%>"><img src="img/<%= photo.object %>" /></a>
+            </div>
         </p>
 
+        <p>
+            Scroll down for comments...<br>
+        </p>
             <% @comments.each do |comment| %>
                 <% if comment.photo_id == photo.id %>
                 <p>
-                    Comments:<br>
-                </p>
-                <p>
-                    <a href="/comments/<%= comment.id%>"><%= comment.post%></a> by <b> <%= comment.user.username %> </b>
+                    <%= comment.user.username %>: <b><a href="/comments/<%= comment.id%>"><%= comment.post%></a></b><br>
+                     Rating: <%= comment.rating%> stars<br>
                 </p>
                 <% end %>
             <% end %>
@@ -29,3 +31,5 @@
     </div>
     <% end %>
 </p>
+
+</div>

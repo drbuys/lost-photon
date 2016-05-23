@@ -29,6 +29,7 @@ end
 get '/photos/:id' do
   #SHOW
   @photo = Photo.find(params[:id]) #dynamic
+  @comments = Comment.all()
   # binding.pry
   erb(:'photo/show')
 end
