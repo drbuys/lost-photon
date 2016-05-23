@@ -104,6 +104,17 @@ class Photo
 # this function should pull out all of the comments for a given photograph
   def comments
       sql = "SELECT * FROM comments WHERE comments.photo_id = #{id};"
+      return Comment.map_items(sql)
+  end
+
+  def avg_rating
+      num_comments = comments.length > 0 ? comments.length : 1
+      return (comments.inject(0) {|sum, comment| sum + comment.rating}/num_comments)
+  end
+
+  def self.top_rated_photo
+      allratings = Photo.all().map {|photo| [photo.avg_rating, photo.name]}
+      return allratings.sort_by {|rating| rating[0] }.reverse
   end
 
   def self.map_items(sql)

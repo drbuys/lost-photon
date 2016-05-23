@@ -10,6 +10,7 @@ end
 get '/cameras' do
   #INDEX
   @cameras = Camera.all()
+  @lenses = Lens.all()
   # binding.pry
   erb(:'camera/index')
 end

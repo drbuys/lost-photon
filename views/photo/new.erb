@@ -1,34 +1,35 @@
-<h1>Add a new Photograph</h1>
+<h2>Add a new Photograph</h2>
 
+<div class="newphoto">
 <form action="/photos" method="post" enctype="multipart/form-data">
 
     <label for="name">Photograph Name:</label>
-    <input type="text" name="name">
+    <input type="text" name="name"><br>
 
     <label for="object">Link to Photograph:</label>
     <!-- <input type="text" name="object"> -->
-    <input type="file" name="object" accept="image/*">
+    <input type="file" name="object" accept="image/*"><br>
 
     <label for="datetaken">Date Taken:</label>
-    <input type="date" name="datetaken">
+    <input type="date" name="datetaken"><br>
 
     <label for="location">Location:</label>
-    <input type="text" name="location">
+    <input type="text" name="location"><br>
 
     <label for="aperture">Aperture Used (f):</label>
-    <input type="number" name="aperture" step="0.1" min="0.5">
+    <input type="number" name="aperture" step="0.1" min="0.5"><br>
 
     <label for="shutterspeed">Shutter Speed Used (e.g. 1/125 s):</label>
-    <input type="text" name="shutterspeed">
+    <input type="text" name="shutterspeed"><br>
 
     <label for="photographer_id">Select your Username:</label>
-    <select name="photographer_id">
+    <select name="photographer_id"><br>
 
         <% @photographers.each do |photographer| %>
         <option value='<%= photographer.id %>'><%= photographer.username %></option>
         <% end %>
 
-    </select>
+    </select><br>
 
     <label for="camera_id">Select the Camera used:</label>
     <select name="camera_id">
@@ -37,7 +38,7 @@
         <option value='<%= camera.id %>'><%= camera.make %> : <%= camera.model %></option>
         <% end %>
 
-    </select>
+    </select><br>
 
     <label for="lens_id">Select the Lens used:</label>
     <select name="lens_id">
@@ -46,12 +47,13 @@
         <option value='<%= lens.id %>'><%= lens.make %> : <%= lens.model %></option>
         <% end %>
 
-    </select>
+    </select><br><br><br>
 
-  <input type="submit" value="Add your photograph">
+  <input type="submit" value="Add your photograph"><br>
 
 </form>
-
+</div>
 <br>
 <br>
 <a href="/photos">Back</a>
+<br>

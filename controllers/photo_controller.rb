@@ -14,6 +14,7 @@ get '/photos' do
   #INDEX
   @photos = Photo.all()
   @comments = Comment.all()
+  @topratedphoto = Photo.top_rated_photo()
   # binding.pry
   erb(:'photo/index')
 end

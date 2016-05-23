@@ -1,16 +1,39 @@
-<h1>List of Cameras</h1>
+<h2>List of Equipment</h2>
 
-<p>
-    --- All Cameras ---
-</p>
-<p>
-  <% @cameras.each do |camera| %>
-<div class="index">
-    <p><a href="/cameras/<%= camera.id%>"><%= camera.make%> : <%= camera.model%></a></p>
+<div class="equipmentlist">
+    <div class="index">
+    <p>
+        --- All Cameras ---
+    </p>
+
+    <p>
+      <% @cameras.each do |camera| %>
+
+        <p><a href="/cameras/<%= camera.id%>"><%= camera.make%> : <%= camera.model%></a></p>
+
+        <% end %>
+    </p>
+
+    <p>
+        <a href="/cameras/new">Add a new camera</a>
+    </p>
+    </div>
+    <br>
+
+    <div class="index">
+    <p>
+        --- All Lenses ---
+    </p>
+    <p>
+      <% @lenses.each do |lens| %>
+
+        <p><a href="/lenses/<%= lens.id%>"><%= lens.make%> : <%= lens.model%></a></p>
+
+        <% end %>
+    </p>
+
+    <p>
+        <a href="/lenses/new">Add a new lens</a>
+    </p>
+    </div>
 </div>
-    <% end %>
-</p>
-
-<p>
-    <a href="/cameras/new">>Add a new camera<</a>
-</p>

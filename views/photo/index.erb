@@ -1,5 +1,5 @@
 <h2>Photographs</h2>
-
+<%= @topratedphoto[0][1] %>
 <div class="photoscomments">
 
 <p>
@@ -11,6 +11,8 @@
             <a href="/photos/<%= photo.id%>"><img src="img/<%= photo.object %>" /></a>
             </div>
         </p>
+
+        Average rating: <%= photo.avg_rating %> stars!
 
         <p>
             Scroll down for comments...<br>
