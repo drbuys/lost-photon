@@ -12,10 +12,21 @@
         <div class="navbar">
             <nav>
                 <ul>
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/photos">Photos</a></li>
-                    <li><a href="/users">Users</a></li>
-                    <li><a href="/cameras">Equipment</a></li>
+
+                    <li><div class="dropdown"><a href="/">[Home]</a><div class="dropdown-content">
+                        <p><a href="/login">[Login]</a></p>
+                        <p><a href="/logout">[Logout]</a></p>
+                    </div>
+                </div></li>
+                    <li><div class="dropdown"><a href="/photos">[Photos]</a><div class="dropdown-content">
+                        <p><a href="/photos/toprated">[Top Rated Photograph]</a></p>
+                    </div>
+                </div></li>
+                    <li><a href="/users">[Users]</a></li>
+                    <li><div class="dropdown"><a href="/cameras">[Equipment]</a><div class="dropdown-content">
+                        <p><a href="/photos/toprated">[Top Rated Equipment]</a></p>
+                    </div>
+                </div></li>
                 </ul>
             </nav>
         </div>

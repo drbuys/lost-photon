@@ -1,30 +1,33 @@
-<h1>Edit User</h1>
+<h2>Edit User</h2>
+
+
+
 <div class="edit">
     <form action="/users/<%= @user.id %>" method="post">
         <input type="hidden" name="_method" value="put"><br>
 
         <label for="username">User Name:</label>
-        <input type="text" name="username" value="<%= @user.username %>">
+        <input type="text" name="username" value="<%= @user.username %>"><br>
 
         <label for="fullname">Full Name:</label>
-        <input type="text" name="fullname" value="<%= @user.fullname %>">
+        <input type="text" name="fullname" value="<%= @user.fullname %>"><br>
 
-        <label for="isphotographer">Are you also a photographer?</label>
+        <label for="isphotographer">Are you also a photographer?</label><br>
         <select name="isphotographer">
 
             <option value=TRUE <%= 'selected' if @user.isphotographer == "t" %>>Yes</option>
             <option value=FALSE <%= 'selected' if @user.isphotographer == "f" %>>No</option>
 
-        </select>
+        </select><br>
 
       <input type="submit" value="Update user info">
 
-    </form>
+  </form><br>
 </div>
 <form action="/users/<%= @user.id %>" method="post">
   <input type="hidden" name="_method" value="delete">
   <input type="submit" value="Delete this user">
-</form>
+</form><br>
 
 <br>
 <br>

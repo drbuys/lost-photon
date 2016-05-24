@@ -17,6 +17,11 @@ class User
       return SqlRunner.run(sql)
   end
 
+  def self.login(options)
+      sql = "SELECT * FROM users WHERE username = '#{options['username']}' AND fullname = '#{options['fullname']}';"
+      return User.map_item(sql)
+  end
+
   def self.all()
       sql = "SELECT * FROM users;"
       return User.map_items(sql)

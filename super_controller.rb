@@ -12,6 +12,23 @@ require_relative('controllers/photo_controller')
 require_relative('controllers/camera_controller')
 require_relative('controllers/lens_controller')
 
+enable :sessions
+
 get '/' do
-  erb(:home)
+    erb(:home)
 end
+
+get '/login' do
+    @users = User.all()
+    @photographers = User.photographers()
+    erb(:login)
+end
+
+get '/logout' do
+    session[:name] = nil
+    redirect '/'
+end
+
+# post '/signup' do
+#     erb(:signup)
+# end

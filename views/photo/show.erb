@@ -1,4 +1,4 @@
-<h2><%= @photo.name %> by <%= @photo.photographer.username %></h2>
+<h2><%= @photo.name %> by <%= @user.username %></h2>
 
 <div class="photoscomments">
 
@@ -16,18 +16,18 @@
     Lens: <%= @photo.lens.make %> : <%= @photo.lens.model %><br>
 </p>
 
-    <!-- <#% if @user.isphotographer == 't' %>
+    <% if @user.isphotographer == 't' %>
         <p>
-        This user is a <b>photographer</b>, and can post their photos.
+        <a href="/photos/<%= @photo.id %>/edit">Edit the photo info?</a>
         </p>
-    <#% else %>
+    <% else %>
         <p>
         This user cannot post photographs.
         </p>
-    <#% end %> -->
+    <% end %>
 
 <!-- Maybe add loop through photographers, and if they match the user id (aka user is also a photographer) then display the eidt button below! -->
-<a href="/photos/<%= @photo.id %>/edit">Edit this photograph</a>
+
 
 <p>
     Comments:<br>

@@ -8,44 +8,80 @@ get '/users/new' do
 end
 
 get '/users' do
-  #INDEX
-  @users = User.all()
-  @photographers = User.photographers()
-  # binding.pry
-  erb(:'user/index')
+    if @user = session[:name]
+      #INDEX
+      @users = User.all()
+      @photographers = User.photographers()
+      # binding.pry
+      erb(:'user/index')
+  else
+      redirect '/login'
+  end
 end
 
-post '/users' do
+post '/users/new' do
   #CREATE
   # binding.pry
-  @user = User.new(params)
-  @user.save()
-  @photographers = User.photographers()
-  erb(:'user/create')
+  if  @user = User.new(params)
+      @user.save()
+      session[:name] = @user
+      @photographers = User.photographers()
+      erb(:'user/create')
+  else
+      redirect '/login'
+  end
+end
+
+put '/users' do
+    if  @user = User.login(params)
+        session[:name] = @user
+        erb(:'user/create')
+    else
+        redirect '/'
+    end
 end
 
 get '/users/:id' do
-  #SHOW
-  @user = User.find(params[:id]) #dynamic
-  # binding.pry
-  erb(:'user/show')
+      #SHOW
+    if  @user = session[:name]
+        @displayuser = User.find(params[:id])
+        # binding.pry
+        erb(:'user/show')
+    else
+        redirect '/users'
+    end
 end
 
 get '/users/:id/edit' do
   #EDIT
-  @user = User.find(params[:id])
-  erb(:'user/edit')
+  if  @user = session[:name]
+      if params[:id].to_i == @user.id
+          erb(:'user/edit')
+      else
+          redirect '/users'
+      end
+  else
+      redirect '/users'
+  end
 end
 
 put '/users/:id' do
   #UPDATE
-  @user = User.update(params)
-  # binding.pry
-  redirect to("/users/#{params[:id]}")
+  if  @user = session[:name]
+      @user = User.update(params)
+      # binding.pry
+      redirect to("/users/#{params[:id]}")
+  else
+      redirect '/users'
+  end
 end
 
 delete '/users/:id' do
-  #DELETE
-  User.destroy(params[:id])
-  redirect to('/users')
+    if    @user = session[:name]
+      #DELETE
+      User.destroy(params[:id])
+      redirect to('/users')
+  else
+      redirect '/users'
+  end
 end

@@ -1,8 +1,8 @@
-<h1>This is the user you were looking for!</h1>
+<h2>Welcome to [lost:photon]</h2>
 <p>
-    <b><%= @user.fullname %></b>, also known as: <%= @user.username %>
+    <b><%= @displayuser.fullname %></b>, also known as: <%= @displayuser.username %>
 </p>
-    <% if @user.isphotographer == 't' %>
+    <% if @displayuser.isphotographer == 't' %>
         <p>
         This user is a <b>photographer</b>, and can post their photos.
         </p>
@@ -11,4 +11,6 @@
         This user cannot post photographs.
         </p>
     <% end %>
-<a href="/users/<%= @user.id %>/edit">Edit this user</a>
+    <% if @user.id == @displayuser.id %>
+        <a href="/users/<%= @displayuser.id %>/edit">Edit this user</a>
+    <% end %>
