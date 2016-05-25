@@ -1,10 +1,12 @@
-<h1>Edit your Comment</h1>
+<h2>Edit your Comment</h2>
+
+<% if @user.id == @comment.user_id  %>
 
 <p>
-    Edit your comment on <b><%= @comment.photo.name %></b> below <b><%= @comment.user.username %></b>
+    <b><%= @comment.user.username %></b>, you can edit your comment on <b><%= @comment.photo.name %></b> below:
 </p>
 
-<form action="/comments/<%= @comment.id %>" method="post">
+<form action="/photos/<%= @photo.id %>/comments/<%= @comment.id %>" method="post">
     <input type="hidden" name="_method" value="put"><br>
 
     <input type="hidden" name="user_id" value="<%= @comment.user_id %>">
@@ -21,20 +23,31 @@
         <option value='4' <%= 'selected' if @comment.rating == 4 %>>4</option>
         <option value='5' <%= 'selected' if @comment.rating == 5 %>>5</option>
 
-    </select>
+    </select><br>
+    <p>
 
-    <label for="post">Write your comment here:</label>
+    </p><br>
+
+    <label for="post">Comment:</label>
     <input type="text" name="post" value="<%= @comment.post %>">
 
-  <input type="submit" value="Edit your comment">
+  <input type="submit" value="Edit your comment"><br>
 
 </form>
 
-<form action="/comments/<%= @comment.id %>" method="post">
+<br>
+<br>
+<form action="/photos/<%= @photo.id %>/comments/<%= @comment.id %>" method="post">
   <input type="hidden" name="_method" value="delete">
   <input type="submit" value="Delete comment">
 </form>
 
+<% else %>
+
+<h3>You cannot edit this comment <%= @user.username %>.</h3>
+
+<% end %>
+
 <br>
 <br>
-<a href="/comments">Back</a>
+<a href="/photos/<%=  @photo.id %>/comments">Back</a>

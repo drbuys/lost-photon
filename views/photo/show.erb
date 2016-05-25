@@ -3,9 +3,9 @@
 <div class="photoscomments">
 
 
-    <!-- <div class="photo"> -->
-    <img src="../img/<%= @photo.object %>" />
-    <!-- </div> -->
+    <div class="showphoto">
+    <a href="../img/<%= @photo.object %>"><img src="../img/<%= @photo.object %>" /></a>
+    </div>
 <p>
     --- Exif ---<br>
     Date: <%= @photo.datetaken %><br>
@@ -35,15 +35,15 @@
 <% @comments.each do |comment| %>
     <% if comment.photo_id == @photo.id %>
     <p>
-        <%= comment.user.username %>: <b><a href="/comments/<%= comment.id%>"><%= comment.post%></a></b><br>
-         Rating: <%= comment.rating%> stars<br>
+        <a href="/photos/<%=  @photo.id %>/comments/<%= comment.id %>/edit"><%= comment.user.username %>: <b><%= comment.post %></a></b><br>
+         Rating: <%= comment.rating %> stars<br>
     </p>
     <% end %>
 <% end %>
 
 
 <p>
-<a href="/comments/new"><b>Add a comment</b></a>
+<a href="/photos/<%= @photo.id %>/comments/new"><b>Add a comment</b></a>
 </p>
 
 </div>

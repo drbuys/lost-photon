@@ -13,8 +13,8 @@ class User
   end
 
   def save()
-      sql = "INSERT INTO users (username, fullname, isphotographer) VALUES ('#{@username}', '#{@fullname}', #{@isphotographer});"
-      return SqlRunner.run(sql)
+      sql = "INSERT INTO users (username, fullname, isphotographer) VALUES ('#{@username}', '#{@fullname}', #{@isphotographer}) RETURNING *;"
+      return User.map_item(sql)
   end
 
   def self.login(options)

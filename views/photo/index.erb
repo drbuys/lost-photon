@@ -25,11 +25,19 @@
             <% end %>
 
         <p>
-            <a href="/comments/new"><b>Add a comment</b></a>
+            <a href="/photos/<%= photo.id%>/comments/new"><b>Add a comment</b></a>
         </p>
         <hr>
     </div>
     <% end %>
 </p>
 
+</div>
+
+<div class="addnewphoto">
+    <% if @user.isphotographer ='t' %>
+
+    <h2><a href="/photos/new">Add a new photo?</a></h2>
+
+    <% end %>
 </div>

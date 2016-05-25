@@ -86,23 +86,35 @@ end
 
 get '/photos/:id/edit' do
   #EDIT
-  @photo = Photo.find(params[:id])
-  @photographers = User.photographers()
-  @cameras = Camera.all()
-  @lenses = Lens.all()
-  @user = session[:name]
-  erb(:'photo/edit')
+  if @user = session[:name]
+      @photo = Photo.find(params[:id])
+      @photographers = User.photographers()
+      @cameras = Camera.all()
+      @lenses = Lens.all()
+      @user = session[:name]
+      erb(:'photo/edit')
+  else
+      redirect '/photos'
+  end
 end
 
 put '/photos/:id' do
   #UPDATE
-  @photo = Photo.update(params)
-  # binding.pry
-  redirect to("/photos/#{params[:id]}")
+  if @user = session[:name]
+      @photo = Photo.update(params)
+      # binding.pry
+      redirect to("/photos/#{params[:id]}")
+  else
+      redirect '/photos'
+  end
 end
 
 delete '/photos/:id' do
-  #DELETE
-  Photo.destroy(params[:id])
-  redirect to('/photos')
+    if @user = session[:name]
+      #DELETE
+      Photo.destroy(params[:id])
+      redirect to('/photos')
+    else
+        redirect '/photos'
+    end
 end

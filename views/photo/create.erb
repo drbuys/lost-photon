@@ -4,6 +4,9 @@
 <p>
     Thank you <b><%= @user.username %></b>, your photograph <b><%= @photo.name %></b> was successfully uploaded.
 </p>
+    <div class="showphoto">
+        <img src="../img/<%= @photo.object %>" />
+    </div>
 <p>
     --- Exif ---<br>
     Date: <%= @photo.datetaken %><br>

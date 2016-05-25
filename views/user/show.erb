@@ -1,14 +1,35 @@
 <h2>Welcome to [lost:photon]</h2>
 <p>
-    <b><%= @displayuser.fullname %></b>, also known as: <%= @displayuser.username %>
-</p>
+    ---<b> <%= @displayuser.fullname %></b>, also known as: <%= @displayuser.username %>. &nbsp;
+
     <% if @displayuser.isphotographer == 't' %>
-        <p>
-        This user is a <b>photographer</b>, and can post their photos.
+
+        This user is a <b>photographer</b>, and can post their photos. ---
         </p>
-    <% else %>
+
+<div class="photoscomments">
+<h3>Users Photographs</h3>
         <p>
-        This user cannot post photographs.
+            <% @photos.each do |photo| %>
+                <% if photo.photographer_id == @displayuser.id %>
+                <div class="photos">
+                    <p>
+                        <b>[<%= photo.name %>]</b><br>
+                        <div class="photo">
+                        <a href="/photos/<%= photo.id%>"><img src="../img/<%= photo.object %>" /></a>
+                        </div>
+                    </p>
+                    <hr>
+                </div>
+                <% end  %>
+            <% end %>
+        </p>
+
+</div>
+
+    <% else %>
+
+        This user cannot post photographs. ---
         </p>
     <% end %>
     <% if @user.id == @displayuser.id %>

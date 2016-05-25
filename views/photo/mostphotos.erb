@@ -1,0 +1,46 @@
+<h2>Highest Contributing Photographer</h2>
+
+<div class="mostphotos">
+    <h4>
+        <%= User.find(@mostphotos[0]['photographer_id']).username %> is our highest contributing photographer.<br>
+        See his contributions below:
+    </h4>
+</div>
+
+<div class="photoscomments">
+
+<p>
+    <% @photos.each do |photo| %>
+
+    <% if User.find(@mostphotos[0]['photographer_id']).id == photo.photographer_id %>
+
+    <div class="photos">
+        <p>
+            <b>[<%= photo.name %>]</b><br>
+            <div class="photo">
+            <a href="/photos/<%= photo.id%>"><img src="../img/<%= photo.object %>" /></a>
+            </div>
+        </p>
+        <p>
+            Average rating: <b><%= photo.avg_rating %></b> stars!<br>
+            Scroll down for comments...<br>
+        </p>
+            <% @comments.each do |comment| %>
+                <% if comment.photo_id == photo.id %>
+                <p>
+                    <%= comment.user.username %>: <b><a href="/comments/<%= comment.id%>"><%= comment.post%></a></b><br>
+                     Rating: <%= comment.rating%> stars<br>
+                </p>
+                <% end %>
+            <% end %>
+
+        <p>
+            <a href="/comments/new"><b>Add a comment</b></a>
+        </p>
+        <hr>
+    </div>
+    <% end %>
+    <% end %>
+</p>
+
+</div>

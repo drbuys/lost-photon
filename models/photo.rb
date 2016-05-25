@@ -128,6 +128,11 @@ class Photo
       return Comment.map_items(sql)
   end
 
+  def self.randomphoto
+      random = Photo.all().map { |photo| photo }
+      return random.sample
+  end
+
   def avg_rating
       num_comments = comments.length > 0 ? comments.length : 1
       return (comments.inject(0) {|sum, comment| sum + comment.rating}/num_comments)

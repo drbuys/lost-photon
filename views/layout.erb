@@ -4,6 +4,7 @@
         <meta charset="utf-8">
         <link rel="stylesheet" href="/style.css" media="screen" title="no title" charset="utf-8">
         <title>[lost:photon]</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
         <header>
@@ -31,7 +32,11 @@
                 </div></li>
                 <div class="currentuser">
                     <p>
-                        [Current user: <%= @user.username %>]
+                        <% if @user = session[:name] %>
+                            <a href="/users/<%= @user.id %>">[Current user: <%= @user.username %>]</a>
+                        <% else %>
+                            [Current user: not logged in]
+                        <% end  %>
                     </p>
                 </div>
                 </ul>

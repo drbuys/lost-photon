@@ -1,5 +1,7 @@
 <h2>Edit this Photograph</h2>
 
+<% if @user.id == @photo.photographer.id %>
+
 <div class="editphoto">
 <div class="photo">
 
@@ -15,8 +17,7 @@
     <label for="name">Photograph Name:</label>
     <input type="text" name="name" value="<%= @photo.name %>"><br>
 
-    <label for="object">Link to Photograph:</label>
-    <input type="hidden" name="object" value="<%= @photo.object %>"><br>
+    <input type="hidden" name="object" value="<%= @photo.object %>">
 
     <label for="datetaken">Date Taken:</label>
     <input type="date" name="datetaken" value="<%= @photo.datetaken %>"><br>
@@ -25,20 +26,12 @@
     <input type="text" name="location" value="<%= @photo.location %>"><br>
 
     <label for="aperture">Aperture Used (f):</label>
-    <input type="number" name="aperture" step="0.1" value="<%= @photo.aperture %>"><br>
+    <input type="number" name="aperture" step="0.1" min="0.5" value="<%= @photo.aperture %>"><br>
 
     <label for="shutterspeed">Shutter Speed Used (e.g. 1/125 s):</label>
     <input type="text" name="shutterspeed" value="<%= @photo.shutterspeed %>"><br><br>
 
-<!-- following 3 selects dynamically create pulldown options and prefills with appropriate info -->
-    <label for="photographer_id">Select your Username:</label>
-    <select name="photographer_id">
-
-        <% @photographers.each do |photographer| %>
-        <option value='<%= photographer.id %>' <%= 'selected' if photographer.id == @photo.photographer_id %>><%= photographer.username %></option>
-        <% end %>
-
-    </select><br>
+    <input type="hidden" name="photographer_id" value="<%= @user.id %>">
 
     <label for="camera_id">Select the Camera used:</label>
     <select name="camera_id">
@@ -68,6 +61,11 @@
   <input type="submit" value="Delete photograph">
 </form>
 
+<% else %>
+
+<h3>You don't have the rights to edit this photographs information...</h3>
+
+<% end  %>
 
 
 <br>

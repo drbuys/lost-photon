@@ -23,8 +23,7 @@ post '/users/new' do
   #CREATE
   # binding.pry
   if  @user = User.new(params)
-      @user.save()
-      session[:name] = @user
+      session[:name] = @user.save()
       @photographers = User.photographers()
       erb(:'user/create')
   else
@@ -45,6 +44,7 @@ get '/users/:id' do
       #SHOW
     if  @user = session[:name]
         @displayuser = User.find(params[:id])
+        @photos = Photo.all()
         # binding.pry
         erb(:'user/show')
     else

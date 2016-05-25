@@ -38,7 +38,7 @@ class Comment
             photo_id = #{params['photo_id']},
             rating = #{params['rating']},
             post = $$#{params['post']}$$
-            WHERE id = #{params['id']};"
+            WHERE id = #{params['comment_id']};"
             return Comment.map_item(sql)
     end
 

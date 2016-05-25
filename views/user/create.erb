@@ -8,11 +8,11 @@
 
     <% if @user.isphotographer == 'TRUE' %>
 <p>
-    As a photographer you can <a href="/">view</a>, <a href="/">add new</a>, and comment on photographs.
+    As a photographer you can <a href="/photos">view</a>, <a href="/photos/new">add new</a>, and comment on photographs.
 </p>
     <% else %>
 <p>
-    You have created a user account. You can now <a href="/">view</a> and comment on photographs.
+    You can now <a href="/photos">view</a> and comment on photographs.
 </p>
     <% end %>
 </div>
