@@ -56,7 +56,7 @@ get '/photos' do
       # binding.pry
       erb(:'photo/index')
   else
-      redirect '/'
+      redirect '/login'
   end
 end
 

@@ -4,21 +4,21 @@
         <input type="hidden" name="_method" value="put"><br>
 
         <label for="make">Lens Make:</label>
-        <input type="text" name="make" value="<%= @lens.make %>">
+        <input type="text" name="make" value="<%= @lens.make %>"><br>
 
         <label for="model">Lens Model:</label>
-        <input type="text" name="model" value="<%= @lens.model %>">
+        <input type="text" name="model" value="<%= @lens.model %>"><br>
 
-      <input type="submit" value="Update lens info">
+      <input type="submit" value="Update lens info"><br>
 
-    </form>
+  </form><br>
 </div>
 
 <form action="/lenses/<%= @lens.id %>" method="post">
-  <input type="hidden" name="_method" value="delete">
-  <input type="submit" value="Delete this lens">
-</form>
+  <input type="hidden" name="_method" value="delete"><br>
+  <input type="submit" value="Delete this lens"><br>
+</form><br>
 
 <br>
 <br>
-<a href="/lenses">Back</a>
+<a href="/cameras">Back</a>

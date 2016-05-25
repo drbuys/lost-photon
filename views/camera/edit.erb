@@ -4,19 +4,19 @@
         <input type="hidden" name="_method" value="put"><br>
 
         <label for="make">Camera Make:</label>
-        <input type="text" name="make" value="<%= @camera.make %>">
+        <input type="text" name="make" value="<%= @camera.make %>"><br>
 
         <label for="model">Camera Model:</label>
-        <input type="text" name="model" value="<%= @camera.model %>">
+        <input type="text" name="model" value="<%= @camera.model %>"><br>
 
-      <input type="submit" value="Update camera info">
+      <input type="submit" value="Update camera info"><br>
 
     </form>
 </div>
 
 <form action="/cameras/<%= @camera.id %>" method="post">
-  <input type="hidden" name="_method" value="delete">
-  <input type="submit" value="Delete this camera">
+  <input type="hidden" name="_method" value="delete"><br>
+  <input type="submit" value="Delete this camera"><br>
 </form>
 
 <br>

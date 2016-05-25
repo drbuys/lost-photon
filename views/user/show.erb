@@ -2,7 +2,7 @@
 <p>
     ---<b> <%= @displayuser.fullname %></b>, also known as: <%= @displayuser.username %>. &nbsp;
 
-    <% if @displayuser.isphotographer == 't' %>
+    <% if @displayuser.isphotographer == 'TRUE' || 't' %>
 
         This user is a <b>photographer</b>, and can post their photos. ---
         </p>

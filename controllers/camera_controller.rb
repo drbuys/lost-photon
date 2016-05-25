@@ -8,11 +8,15 @@ get '/cameras/new' do
 end
 
 get '/cameras' do
-  #INDEX
-  @cameras = Camera.all()
-  @lenses = Lens.all()
-  # binding.pry
-  erb(:'camera/index')
+    if @user = session[:name]
+      #INDEX
+      @cameras = Camera.all()
+      @lenses = Lens.all()
+      # binding.pry
+      erb(:'camera/index')
+  else
+      redirect '/login'
+  end
 end
 
 post '/cameras' do
