@@ -12,21 +12,28 @@
         <div class="navbar">
             <nav>
                 <ul>
-
                     <li><div class="dropdown"><a href="/">[Home]</a><div class="dropdown-content">
                         <p><a href="/login">[Login]</a></p>
                         <p><a href="/logout">[Logout]</a></p>
                     </div>
                 </div></li>
                     <li><div class="dropdown"><a href="/photos">[Photos]</a><div class="dropdown-content">
-                        <p><a href="/photos/toprated">[Top Rated Photograph]</a></p>
+                        <p><a href="/photos/topratedphoto">[Top Rated Photographs]</a></p>
                     </div>
                 </div></li>
-                    <li><a href="/users">[Users]</a></li>
+                    <li><div class="dropdown"><a href="/users">[Users]</a><div class="dropdown-content">
+                        <p><a href="/photos/mostphotos">[Highest Contributing Photographer]</a></p>
+                    </div>
+                </div></li>
                     <li><div class="dropdown"><a href="/cameras">[Equipment]</a><div class="dropdown-content">
-                        <p><a href="/photos/toprated">[Top Rated Equipment]</a></p>
+                        <p><a href="/photos/topratedequipment">[Most Popular Equipment]</a></p>
                     </div>
                 </div></li>
+                <div class="currentuser">
+                    <p>
+                        [Current user: <%= @user.username %>]
+                    </p>
+                </div>
                 </ul>
             </nav>
         </div>

@@ -89,6 +89,13 @@ class Photo
       return User.map_item(sql)
   end
 
+  def self.photographercount
+      sql = "SELECT photographer_id, COUNT(*) FROM photos GROUP BY photographer_id;"
+      result = SqlRunner.run(sql)
+    #   return result.sort_by {|id, count| count}
+      return result.sort{ |a,b| b['count'] <=> a['count'] }
+  end
+
 # this function should pull out the camera used to take the photo
   def camera
       sql = "SELECT * FROM cameras WHERE id = #{@camera_id};"
@@ -96,20 +103,23 @@ class Photo
   end
 
   def self.cameracount
-      sql = "SELECT camera_id, count(*) from photos group by camera_id;"
+      sql = "SELECT camera_id, COUNT(*) FROM photos GROUP BY camera_id;"
       result = SqlRunner.run(sql)
     #   return result.sort_by {|id, count| count}
       return result.sort{ |a,b| b['count'] <=> a['count'] }
-  end
-
-  def self.top_rated_camera
-      allphotos = Photo.all().map
   end
 
 # this function should pull out the lens used to take the photo
   def lens
       sql = "SELECT * FROM lenses WHERE id = #{@lens_id};"
       return Lens.map_item(sql)
+  end
+
+  def self.lenscount
+      sql = "SELECT lens_id, COUNT(*) FROM photos GROUP BY lens_id;"
+      result = SqlRunner.run(sql)
+    #   return result.sort_by {|id, count| count}
+      return result.sort{ |a,b| b['count'] <=> a['count'] }
   end
 
 # this function should pull out all of the comments for a given photograph

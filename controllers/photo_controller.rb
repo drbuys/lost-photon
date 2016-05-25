@@ -15,11 +15,33 @@ get '/photos/new' do
 end
 
     #displays top rated photograph
-get '/photos/toprated' do
+get '/photos/topratedphoto' do
+    if @user = session[:name]
+        @topratedphoto = Photo.top_rated_photo()
+        erb(:'photo/topratedphoto')
+    else
+        redirect '/photos'
+    end
+end
+
+#displays top rated equipment
+get '/photos/topratedequipment' do
     if @user = session[:name]
         @topratedcamera = Photo.cameracount()
-        @topratedphoto = Photo.top_rated_photo()
-        erb(:'photo/toprated')
+        @topratedlens = Photo.lenscount()
+        erb(:'photo/topratedequipment')
+    else
+        redirect '/photos'
+    end
+end
+
+#displays top rated equipment
+get '/photos/mostphotos' do
+    if @user = session[:name]
+        @photos = Photo.all()
+        @comments = Comment.all()
+        @mostphotos = Photo.photographercount()
+        erb(:'photo/mostphotos')
     else
         redirect '/photos'
     end
@@ -30,7 +52,7 @@ get '/photos' do
         #INDEX
       @photos = Photo.all()
       @comments = Comment.all()
-      @topratedphoto = Photo.top_rated_photo()
+    #   @topratedphoto = Photo.top_rated_photo()
       # binding.pry
       erb(:'photo/index')
   else

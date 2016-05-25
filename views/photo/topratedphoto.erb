@@ -1,0 +1,27 @@
+<h2>Top Rated Photograph</h2>
+
+<div class="toprated">
+
+    <div class="photostoprated">
+    <h3>Rated 1st</h3>
+        <img src="../img/<%= @topratedphoto[0][1].object %>" alt="Top Rated Photo" />
+
+        <p>
+            <b><%= @topratedphoto[0][1].name %></b> by <%= @topratedphoto[0][1].photographer.username %> was rated <b><%= @topratedphoto[0][1].avg_rating %></b> stars!
+        </p>
+    <h3>Rated 2nd</h3>
+        <img src="../img/<%= @topratedphoto[1][1].object %>" alt="Top Rated Photo" />
+
+        <p>
+            <b><%= @topratedphoto[1][1].name %></b> by <%= @topratedphoto[1][1].photographer.username %> was rated <b><%= @topratedphoto[1][1].avg_rating %></b> stars!
+        </p>
+    <h3>Rated 3rd</h3>
+        <img src="../img/<%= @topratedphoto[2][1].object %>" alt="Top Rated Photo" />
+
+        <p>
+            <b><%= @topratedphoto[2][1].name %></b> by <%= @topratedphoto[2][1].photographer.username %> was rated <b><%= @topratedphoto[2][1].avg_rating %></b> stars!
+        </p>
+
+    </div>
+
+</div>
