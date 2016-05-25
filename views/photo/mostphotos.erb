@@ -23,7 +23,7 @@
         </p>
         <p>
             Average rating: <b><%= photo.avg_rating %></b> stars!<br>
-            Scroll down for comments...<br>
+            <b>Scroll down for comments...</b><br>
         </p>
             <% @comments.each do |comment| %>
                 <% if comment.photo_id == photo.id %>
@@ -37,7 +37,6 @@
         <p>
             <a href="/comments/new"><b>Add a comment</b></a>
         </p>
-        <hr>
     </div>
     <% end %>
     <% end %>
