@@ -3,16 +3,9 @@
 <div class="toprated">
 
 <div class="mostusedcamera">
-
 <h3>--- Most Popular Cameras ---</h3>
     <h4>
         <%= Camera.find(@topratedcamera[0]['camera_id']).make %> : <%= Camera.find(@topratedcamera[0]['camera_id']).model %><br>
-    </h4>
-    <h4>
-        <%= Camera.find(@topratedcamera[1]['camera_id']).make %> : <%= Camera.find(@topratedcamera[1]['camera_id']).model %><br>
-    </h4>
-    <h4>
-        <%= Camera.find(@topratedcamera[2]['camera_id']).make %> : <%= Camera.find(@topratedcamera[2]['camera_id']).model %><br>
     </h4>
 </div>
 
@@ -20,10 +13,7 @@
 
 <h3>--- Most Popular Lenses ---</h3>
     <h4>
-        <%= Camera.find(@topratedlens[0]['lens_id']).make %> : <%= Camera.find(@topratedlens[0]['lens_id']).model %><br>
-    </h4>
-    <h4>
-        <%= Camera.find(@topratedlens[1]['lens_id']).make %> : <%= Camera.find(@topratedlens[1]['lens_id']).model %><br>
+        <%= Lens.find(@topratedlens[0]['lens_id']).make %> : <%= Lens.find(@topratedlens[0]['lens_id']).model %><br>
     </h4>
 </div>
 

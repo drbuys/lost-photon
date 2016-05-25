@@ -18,7 +18,7 @@
             <% @comments.each do |comment| %>
                 <% if comment.photo_id == photo.id %>
                 <p>
-                    <%= comment.user.username %>: <b><a href="/comments/<%= comment.id%>"><%= comment.post%></a></b><br>
+                    <a href="/photos/<%= photo.id %>/comments/<%= comment.id %>/edit"><%= comment.user.username %>: <b><%= comment.post%></a></b><br>
                      Rating: <%= comment.rating%> stars<br>
                 </p>
                 <% end %>

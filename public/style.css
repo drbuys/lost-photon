@@ -312,3 +312,22 @@ input {
 .currentuser a:hover {
     color: black;
 }
+
+.toprate {
+    display: inline-block;
+    text-align: center;
+    float: none;
+    margin: auto;
+}
+
+.mostusedcamera {
+    display: inline-block;
+    width: 49%;
+    text-align: center;
+}
+
+.mostusedlens {
+    display: inline-block;
+    width: 49%;
+    text-align: center;
+}
