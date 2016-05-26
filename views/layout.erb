@@ -8,6 +8,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
+        <div id="wrapper">
+        <div id="header">
+
         <header>
             <h1>[lost:photon]</h1>
         </header>
@@ -43,9 +46,16 @@
                 </ul>
             </nav>
         </div>
-        <%= yield %>
-        <footer><p>
-            &copy; [lost:photon]
-        </p></footer>
+
+        </div>
+        <div id="content">
+            <%= yield %>
+        </div>
+        <div id="footer">
+            <footer><p>
+                &copy; [lost:photon]
+            </p></footer>
+        </div>
+        </div>
     </body>
 </html>
