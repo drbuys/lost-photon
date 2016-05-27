@@ -1,0 +1,5 @@
+source 'https://rubygems.org'
+gem 'sinatra'
+gem 'pg'
+gem 'pry-byebug'
+ruby '2.3.0'
