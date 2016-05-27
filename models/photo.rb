@@ -129,8 +129,9 @@ class Photo
   end
 
   def self.randomphoto
-      random = Photo.all().map { |photo| photo }
-      return random.sample
+    #   random = Photo.all().map { |photo| photo }
+    #   return random.sample
+        return Photo.all().sample
   end
 
   def avg_rating

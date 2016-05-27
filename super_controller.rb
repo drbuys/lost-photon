@@ -15,6 +15,7 @@ require_relative('controllers/lens_controller')
 enable :sessions
 
 get '/' do
+    @photos = Photo.all()
     @photo = Photo.randomphoto()
     # binding.pry
     erb(:home)

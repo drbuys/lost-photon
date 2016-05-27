@@ -6,9 +6,15 @@
     </p><br>
 </div>
 
-<div class="homepageimg">
-    <a href="/photos/<%= @photo.id %>"><img src="img/<%= @photo.object %>" alt="Random Image" /></a><br>
-</div>
+<% if @photos.length > 0 %>
+    <div class="homepageimg">
+        <a href="/photos/<%= @photo.id %>"><img src="img/<%= @photo.object %>" alt="Random Image" /></a><br>
+    </div>
+<% else %>
+    <div class="homepageimg">
+        <a href="/photos"><img src="img/1.jpg" alt="Random Image" /></a><br>
+    </div>
+<% end %>
 
 <div class="introtext">
     <p>
