@@ -19,7 +19,21 @@
                         <a href="/photos/<%= photo.id%>"><img src="../img/<%= photo.object %>" /></a>
                         </div>
                     </p>
-                    <hr>
+                    <p>
+                        Average rating: <b><%= photo.avg_rating %></b> stars!<br>
+                        <b>Scroll down for comments...</b><br>
+                    </p>
+                        <% @comments.each do |comment| %>
+                            <% if comment.photo_id == photo.id %>
+                            <p>
+                                <a href="/photos/<%= photo.id %>/comments/<%= comment.id %>/edit"><%= comment.user.username %>: <b><%= comment.post%></a></b><br>
+                                 Rating: <%= comment.rating%> stars<br>
+                            </p>
+                            <% end %>
+                        <% end %>
+                    <p>
+                        <a href="/photos/<%= photo.id%>/comments/new"><b>Add a comment</b></a>
+                    </p>
                 </div>
                 <% end  %>
             <% end %>

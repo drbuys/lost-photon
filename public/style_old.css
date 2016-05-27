@@ -6,6 +6,18 @@
 
 /*dropdown navar stuff*/
 
+a {
+ text-decoration: none;
+}
+
+img {
+  /*max-width: 100%;*/
+}
+
+h3 {
+  margin: 0 0 1em 0;
+}
+
 html,
 body {
 	/*margin:0;
@@ -17,6 +29,9 @@ body {
 	position:relative;
 }
 #header {
+	max-width: 940px;
+	 margin: 0 auto;
+	 padding: 0 5%;
 	/*background:#ededed;
 	padding:10px;*/
 }

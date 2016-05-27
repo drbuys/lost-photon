@@ -44,6 +44,7 @@ get '/users/:id' do
       #SHOW
     if  @user = session[:name]
         @displayuser = User.find(params[:id])
+        @comments = Comment.all()
         @photos = Photo.all()
         # binding.pry
         erb(:'user/show')
