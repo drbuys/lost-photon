@@ -1,5 +1,8 @@
 <h2>Add a new Comment</h2>
 
+<div class="addnewcomment">
+
+
 <form action="/photos/<%= @photo.id %>/comments" method="post">
 
     <!-- <label for="user_id">Username:</label> -->
@@ -24,11 +27,16 @@
     </p><br>
 
     <label for="post">Comment:</label>
-    <input type="text" name="post">
+    <input type="text" name="post"><br>
+    <p>
+        <br>
+    </p>
 
   <input type="submit" value="Add your comment"><br>
 
 </form>
+
+</div>
 
 <br>
 <br>

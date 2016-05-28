@@ -1,6 +1,8 @@
 <h2>Edit User</h2>
 
 
+<div class="edituser">
+
 
 <div class="edit">
     <form action="/users/<%= @user.id %>" method="post">
@@ -24,11 +26,16 @@
 
   </form><br>
 </div>
+<p>
+    <br>
+    <br>
+</p>
 <form action="/users/<%= @user.id %>" method="post">
   <input type="hidden" name="_method" value="delete">
   <input type="submit" value="Delete this user">
 </form><br>
 
+</div>
 <br>
 <br>
 <a href="/users">Back</a>

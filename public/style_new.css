@@ -10,18 +10,13 @@ a {
     max-width: 100%;
 }
 
-html,
-body {
-	/*margin:0;
-	padding:0;*/
-	height:100%;
-}
 #wrapper {
 	min-height:100%;
 	position:relative;
 }
-#header {
 
+#header {
+    /*width: 100%;*/
 	/*background:#ededed;
 	padding:10px;*/
 }
@@ -82,21 +77,77 @@ body {
 
 .dropdown-content a:hover {background-color: lightgrey;}
 
-.navbar {
-    background-color: lightgrey;
-    padding: 10px;
-    float: left;
-    margin: -60px 0 30px -2.5%;
-    padding: 5px 0 0 0;
-    width: 105%;
+nav {
+    /*flex: auto;*/
+    /*width: 100%;*/
 }
 
-.navbar ul li {
+.navbar {
+    width: 100%;
+      float: left;
+      margin: 0 0 1em 0;
+      /*padding: 5%;*/
+    display: inline-block;
+    background-color: lightgrey;
+    /*padding: 10px;*/
+    /*float: left;*/
+    /*margin: -60px 0 30px -2.5%;
+    padding: 5px 0 0 0;*/
+    /*width: 105%;*/
+}
+
+.navbar li {
     display: inline-block;
     text-align: left;
     /*margin-left: 2%;*/
     font-family: 'Amatic SC', cursive;
     font-size: 1.5em;
+
+}
+
+.navbar ul {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    /*margin-left: 5%;*/
+    display: block;
+    /*position: absolute;*/
+    /*width: 50%;*/
+    /*width: 100%;*/
+}
+
+.navbar a {
+    color: black;
+    text-decoration: none;
+    font-weight:bold;
+}
+
+.currentuser {
+    /*position: absolute;*/
+    vertical-align: middle;
+    /*display: inline-block;*/
+    font-weight: bold;
+    text-decoration: underline;
+    /*width: 100%%;*/
+    /*max-width: 100%;
+    min-width: 20%;*/
+    /*float: right;*/
+    text-align: center;
+    padding: 0;
+    /*margin-top:-25px;*/
+    font-family: 'Amatic SC', cursive;
+    /*font-weight: bold;*/
+    font-size: 1.5em;
+}
+
+.currentuser a {
+    color: grey;
+    font-size: 1em;
+    transition:all 0.5s ease;
+}
+
+.currentuser a:hover {
+    color: black;
 }
 
 h1 {
@@ -104,7 +155,7 @@ h1 {
     font-family: 'Amatic SC', cursive;
     /*font-weight: bold;*/
     font-size: 3em;
-    margin: -5px;
+    /*margin: -5px;*/
 }
 
 h2 {
@@ -161,6 +212,65 @@ footer {
 
 footer p {
     margin-top: -2px;
+}
+
+.loginsignup {
+        /*position: relative;*/
+    /*display: inline-block;*/
+    /*margin: 0 auto;
+    width: 300px;*/
+    /*padding: 2%;*/
+        position: relative;
+        /*overflow: hidden;*/
+        vertical-align: top;
+        text-align: center;
+        /*margin: 50px;*/
+}
+
+.loginsignup h3 {
+    font-size: 2em;
+}
+
+.login {
+    display:inline-block;
+          border-radius: 8px;
+    width: 300px;
+    height: 300px;
+    /*border: 2px solid grey;*/
+    /*overflow:scroll;*/
+    vertical-align: top;
+    /*margin-bottom: 20px;*/
+    margin: 12px;
+    box-shadow: 10px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.signup {
+    display:inline-block;
+          border-radius: 8px;
+    width: 300px;
+    height: 300px;
+    /*border: 2px solid grey;*/
+    /*overflow:scroll;*/
+    vertical-align: top;
+    /*margin-bottom: 20px;*/
+    margin: 12px;
+    box-shadow: 10px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.loginsignup input {
+    display:inline-block;
+    text-align: left;
+    margin: 1%;
+    /*float:left;*/
+    /*width: auto;*/
+}
+
+.loginsignup label {
+    display:inline-block;
+    text-align: left;
+    /*float:left;*/
+    /*width: 300px;
+    height: 20px;*/
 }
 
 .photos {
@@ -221,7 +331,7 @@ display: none;
     overflow: hidden;
     vertical-align: top;
     text-align: center;
-    margin: 50px;
+    /*margin: 50px;*/
 }
 
 .photoscomments a {
@@ -235,11 +345,7 @@ display: none;
     height:450px;
 }
 
-.navbar a {
-    color: black;
-    text-decoration: none;
-    font-weight:bold;
-}
+
 
 .edit {
     /*text-align: center;*/
@@ -265,19 +371,60 @@ display: none;
 
 .newphoto {
     /*text-align: center;*/
-    width: 70%;
-    margin-right: 40%;
+    /*width: 70%;
+    margin-right: 40%;*/
+    display:inline-block;
+          border-radius: 8px;
+    width: 300px;
+    /*height: 300px;*/
+    padding: 5px;
+    /*border: 2px solid grey;*/
+    /*overflow:scroll;*/
+    vertical-align: top;
+    /*margin-bottom: 20px;*/
+    margin: 12px;
+    box-shadow: 10px 8px 16px 0px rgba(0,0,0,0.2);
 }
 
 .newphoto label {
     float:left;
     width:600px;
     height: 20px;
+    display:block;
 }
 
-.newphoto label {
-    float:left;
-    display:block;
+.addnewcomment {
+    /*text-align: center;*/
+    /*width: 70%;
+    margin-right: 40%;*/
+    display:inline-block;
+          border-radius: 8px;
+    width: 300px;
+    /*height: 300px;*/
+    padding: 5px;
+    /*border: 2px solid grey;*/
+    /*overflow:scroll;*/
+    vertical-align: top;
+    /*margin-bottom: 20px;*/
+    margin: 12px;
+    box-shadow: 10px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.edituser {
+    /*text-align: center;*/
+    /*width: 70%;
+    margin-right: 40%;*/
+    display:inline-block;
+          border-radius: 8px;
+    width: 300px;
+    /*height: 300px;*/
+    padding: 5px;
+    /*border: 2px solid grey;*/
+    /*overflow:scroll;*/
+    vertical-align: top;
+    /*margin-bottom: 20px;*/
+    margin: 12px;
+    box-shadow: 10px 8px 16px 0px rgba(0,0,0,0.2);
 }
 
 footer {
@@ -302,46 +449,7 @@ footer {
     width: 50%;
 }
 
-.loginsignup {
-    display: inline-block;
-    width: 95%;
-    padding: 2%;
-}
 
-.login {
-    border-radius: 8px;
-    vertical-align: center;
-    width:40%;
-    float: left;
-    text-align: center;
-    border: 2px solid grey;
-    margin:20px;
-    padding:20px;
-    height: 150px;
-}
-
-.signup {
-    border-radius: 8px;
-    vertical-align: center;
-    width:40%;
-    float: right;
-    text-align: center;
-    border: 2px solid grey;
-    margin:20px;
-    padding:20px;
-    height: 150px;
-}
-
-.loginsignup input {
-    float:left;
-    width: 100px;
-}
-
-.loginsignup label {
-    float:left;
-    width: 300px;
-    height: 20px;
-}
 
 .mostphotos {
     text-align: center;
@@ -361,28 +469,7 @@ input {
     box-shadow: 0px 4px 16px 0px rgba(0,0,0,0.2);
 }
 
-.currentuser {
-    display: inline-block;
-    font-weight: bold;
-    text-decoration: underline;
-    width: auto;
-    float: right;
-    margin-right: 70px;
-    margin-top:-25px;
-    font-family: 'Amatic SC', cursive;
-    /*font-weight: bold;*/
-    font-size: 1.5em;
-}
 
-.currentuser a {
-    color: grey;
-    font-size: 1em;
-    transition:all 0.5s ease;
-}
-
-.currentuser a:hover {
-    color: black;
-}
 
 .toprate {
     display: inline-block;
