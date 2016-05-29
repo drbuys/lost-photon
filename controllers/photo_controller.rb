@@ -62,6 +62,18 @@ end
 
 post '/photos' do
     if @user = session[:name]
+        params["object"][:filename] = SecureRandom.hex
+        if params["object"][:type] == 'image/gif'
+            params["object"][:filename] += '.gif'
+        elsif params["object"][:type] == 'image/jpeg'
+            params["object"][:filename] += '.jpg'
+        elsif params["object"][:type] == 'image/pjpeg'
+            params["object"][:filename] += '.jpg'
+        elsif params["object"][:type] == 'image/png'
+            params["object"][:filename] += '.png'
+        else
+            params["object"][:filename]
+        end
       #CREATE
       # binding.pry
       @photo = Photo.new(params)
