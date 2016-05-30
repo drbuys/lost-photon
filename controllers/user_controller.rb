@@ -24,8 +24,10 @@ post '/users/new' do
   # binding.pry
   if  @user = User.new(params)
       session[:name] = @user.save()
+    #   @user = session[:name]
       @photographers = User.photographers()
-      erb(:'user/create')
+    #   erb(:'user/create')
+    redirect '/photos'
   else
       redirect '/login'
   end
@@ -34,7 +36,8 @@ end
 put '/users' do
     if  @user = User.login(params)
         session[:name] = @user
-        erb(:'user/create')
+        # erb(:'user/create')
+        redirect '/photos'
     else
         redirect '/'
     end

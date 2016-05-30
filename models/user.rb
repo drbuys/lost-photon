@@ -2,23 +2,27 @@ require_relative('../db/sql_runner.rb')
 
 class User
 
-  attr_accessor :id, :username, :fullname, :isphotographer
+  attr_accessor :id, :username, :fullname, :isphotographer, :password
 
   def initialize(params)
       @id = params['id'].to_i
       @username = params['username']
       @fullname = params['fullname']
+      @password = params['password']
       @isphotographer = params['isphotographer']
     #   @isphotographer = isphotographer?(params['isphotographer'])
   end
 
   def save()
-      sql = "INSERT INTO users (username, fullname, isphotographer) VALUES ('#{@username}', '#{@fullname}', #{@isphotographer}) RETURNING *;"
-      return User.map_item(sql)
+      sql = "INSERT INTO users (username, fullname, password, isphotographer) VALUES ('#{@username}', '#{@fullname}', '#{@password}', #{@isphotographer}) RETURNING *;"
+      begin
+            return User.map_item(sql)
+      rescue PG::UniqueViolation
+   end
   end
 
   def self.login(options)
-      sql = "SELECT * FROM users WHERE username = '#{options['username']}' AND fullname = '#{options['fullname']}';"
+      sql = "SELECT * FROM users WHERE username = '#{options['username']}' AND password = '#{options['password']}';"
       return User.map_item(sql)
   end
 
@@ -51,6 +55,7 @@ class User
     sql = "UPDATE users SET
             username = '#{params['username']}',
             fullname = '#{params['fullname']}',
+            password = '#{params['password']}',
             isphotographer = #{params['isphotographer']}
             WHERE id = #{params['id']}"
             return User.map_item(sql)

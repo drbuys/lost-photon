@@ -1,5 +1,7 @@
 <h2>Photographs</h2>
-
+<% @photos.each do |photo| %>
+<img src="https://s3.amazonaws.com/lostphoton-assets/<%= photo.object %>" />
+<% end %>
 <div class="photoscomments">
 
 <p>

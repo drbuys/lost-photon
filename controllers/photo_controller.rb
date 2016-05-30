@@ -62,7 +62,7 @@ end
 
 post '/photos' do
     if @user = session[:name]
-        params["object"][:filename] = SecureRandom.hex
+        params["object"][:filename] = SecureRandom.hex(10)
         if params["object"][:type] == 'image/gif'
             params["object"][:filename] += '.gif'
         elsif params["object"][:type] == 'image/jpeg'
@@ -74,6 +74,35 @@ post '/photos' do
         else
             params["object"][:filename]
         end
+
+        awskey     = 'AKIAJ66PNYK5SR4ZTA2Q'
+        awssecret  = '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'
+        bucketname     = 'lostphoton-assets'
+        file       = params["object"][:tempfile]
+        filename   = params["object"][:filename]
+
+        # Aws.config({access_key_id: awskey, secret_acces_key: awssecret})
+        # Aws.config.update({credentials: Aws::Credentials.new(awskey, awssecret)})
+        # Aws.config[:credentials] = Aws::Credentials.new(awskey, awssecret)
+        # Aws::S3::Base.establish_connection!(
+        #   :access_key_id     => awskey,
+        #   :secret_access_key => awssecret
+        # )
+
+        s3 = Aws::S3::Resource.new({credentials: Aws::Credentials.new(awskey, awssecret), region: 'us-east-1'})
+        bucket = s3.bucket(bucketname)
+        obj = bucket.object(filename)
+        obj.upload_file(file, acl:'public-read')
+
+        # bucket.objects.limit(50).each do |item|
+        #   puts "Name:  #{item.key}"
+        #   puts "URL:   #{item.presigned_url(:get)}"
+        # end
+
+        url = obj.public_url
+
+        # url = "https://#{bucket}.s3.amazonaws.com/#{filename}"
+        # return url
       #CREATE
       # binding.pry
       @photo = Photo.new(params)

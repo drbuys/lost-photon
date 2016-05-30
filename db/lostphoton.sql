@@ -7,8 +7,9 @@ DROP TABLE users;
 
 CREATE TABLE users (
   id SERIAL8 primary key,
-  username VARCHAR(255),
-  fullname VARCHAR(255),
+  username VARCHAR(255) UNIQUE NOT NULL,
+  fullname VARCHAR(255) NOT NULL,
+  password VARCHAR(255) NOT NULL,
   isphotographer BOOLEAN DEFAULT FALSE
 );
 
@@ -31,8 +32,8 @@ CREATE TABLE lenses (
 
 CREATE TABLE photos (
   id serial8 primary key,
-  name VARCHAR(255),
-  object VARCHAR(255),
+  name VARCHAR(255) UNIQUE NOT NULL,
+  object VARCHAR(255) UNIQUE NOT NULL,
   datetaken DATE,
   location VARCHAR(255),
   aperture NUMERIC,
