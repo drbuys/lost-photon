@@ -152,6 +152,16 @@
       box-shadow: 10px 8px 16px 0px rgba(0,0,0,0.2);
   }
 
+  .photos {
+      width: 300px;
+      height: 430px;
+      overflow:scroll;
+  }
+
+  .showphoto img {
+      max-width: 100%;
+      max-height: auto;
+  }
   /*nav {
     background: none;
     float: right;

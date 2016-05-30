@@ -16,11 +16,13 @@
                     <p>
                         <b>[<%= photo.name %>]</b><br>
                         <div class="photo">
-                        <a href="/photos/<%= photo.id%>"><img src="../img/<%= photo.object %>" /></a>
+                        <a href="/photos/<%= photo.id%>"><img src="https://s3.amazonaws.com/lostphoton-assets/<%= photo.object %>" /></a>
                         </div>
                     </p>
                     <p>
                         Average rating: <b><%= photo.avg_rating %></b> stars!<br>
+                    </p>
+                    <p>
                         <b>Scroll down for comments...</b><br>
                     </p>
                         <% @comments.each do |comment| %>

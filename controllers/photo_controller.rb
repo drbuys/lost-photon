@@ -99,7 +99,7 @@ post '/photos' do
         #   puts "URL:   #{item.presigned_url(:get)}"
         # end
 
-        url = obj.public_url
+        # url = obj.public_url
 
         # url = "https://#{bucket}.s3.amazonaws.com/#{filename}"
         # return url
