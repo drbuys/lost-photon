@@ -36,7 +36,7 @@ class Photo
       photographer_id,
       camera_id,
       lens_id) VALUES (
-      '#{@name}',
+      $$#{@name}$$,
       '#{@object}',
       '#{@datetaken}',
       '#{@location}',
@@ -65,7 +65,7 @@ class Photo
 
   def self.update(params)
     sql = "UPDATE photos SET
-            name = '#{params['name']}',
+            name = $$#{params['name']}$$,
             object = '#{params['object']}',
             datetaken = '#{params['datetaken']}',
             location = '#{params['location']}',
