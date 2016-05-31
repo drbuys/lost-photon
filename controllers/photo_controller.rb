@@ -75,12 +75,6 @@ post '/photos' do
             params["object"][:filename]
         end
 
-        awskey     = 'AKIAJ66PNYK5SR4ZTA2Q'
-        awssecret  = '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'
-        bucketname     = 'lostphoton-assets'
-        file       = params["object"][:tempfile]
-        filename   = params["object"][:filename]
-
         # Aws.config({access_key_id: awskey, secret_acces_key: awssecret})
         # Aws.config.update({credentials: Aws::Credentials.new(awskey, awssecret)})
         # Aws.config[:credentials] = Aws::Credentials.new(awskey, awssecret)
@@ -89,7 +83,11 @@ post '/photos' do
         #   :secret_access_key => awssecret
         # )
 
-        s3 = Aws::S3::Resource.new({credentials: Aws::Credentials.new(awskey, awssecret), region: 'us-east-1'})
+        bucketname     = 'lostphoton-assets'
+        file       = params["object"][:tempfile]
+        filename   = params["object"][:filename]
+
+        s3 = Aws::S3::Resource.new({credentials: Aws::Credentials.new(ENV['S3_KEY'], ENV['S3_SECRET']), region: 'us-east-1'})
         bucket = s3.bucket(bucketname)
         obj = bucket.object(filename)
         obj.upload_file(file, acl:'public-read')
