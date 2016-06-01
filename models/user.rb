@@ -14,7 +14,7 @@ class User
   end
 
   def save()
-      sql = "INSERT INTO users (username, fullname, password, isphotographer) VALUES ('#{@username}', '#{@fullname}', '#{@password}', #{@isphotographer}) RETURNING *;"
+      sql = "INSERT INTO users (username, fullname, password, isphotographer) VALUES ('#{@username}', '#{@fullname}', '#{Encrypt.value(@password)}', #{@isphotographer}) RETURNING *;"
       begin
             return User.map_item(sql)
       rescue PG::UniqueViolation
@@ -22,7 +22,7 @@ class User
   end
 
   def self.login(options)
-      sql = "SELECT * FROM users WHERE username = '#{options['username']}' AND password = '#{options['password']}';"
+      sql = "SELECT * FROM users WHERE username = '#{options['username']}' AND password = '#{Encrypt.value(options['password'])}';"
       return User.map_item(sql)
   end
 

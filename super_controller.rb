@@ -3,6 +3,7 @@ require('sinatra/contrib/all') if development?
 require('pry-byebug')
 require('securerandom')
 require('aws-sdk')
+require_relative('models/encryption')
 require_relative('models/user')
 require_relative('models/comment')
 require_relative('models/photo')
